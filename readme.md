@@ -10,3 +10,6 @@ For the LRS2 and CNVSRC.Single datasets, we randomly sample a portion of the aud
 
 # Phase2-ASR-Training
 We use the pre-trained [Hubert model](https://huggingface.co/facebook/hubert-large-ll60k) and the trained k-means model to quantize the audio data. For the quantized audio, we use Conformer as the Encoder and train it in an ASR paradigm with the hybrid CTC/Attention Loss. For detailed steps, please refer to [this link](https://github.com/liu12366262626/AlignVSR/tree/master/align_vsr/Phase2_asr).
+
+# Phase3-AlignVSR
+After completing Phase2, we use the obtained quantized audio as the K (Key) and V (Value) in the Cross-Attention mechanism. The video features are used as Q (Query) and are input into the Cross-Attention. Additionally, we introduce the Local Align Loss to align the audio and video features at the frame level. For detailed steps, please refer to [this link](https://github.com/liu12366262626/AlignVSR/tree/master/align_vsr/Phase3_align_vsr).
