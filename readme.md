@@ -7,3 +7,6 @@ Then, following the steps from [AUTO-AVSR (preparation)](https://github.com/mpc0
 
 # Phase1-k-means
 For the LRS2 and CNVSRC.Single datasets, we randomly sample a portion of the audio data from the training set to train a k-means model with a total of 200 clusters. For specific steps, please refer to [this link](https://github.com/liu12366262626/AlignVSR/tree/master/align_vsr/Phase1_k-means_cluster). After completing this step, we will obtain the k-means model for the next phase of training.
+
+# Phase2-ASR-Training
+We use the pre-trained [Hubert model](https://huggingface.co/facebook/hubert-large-ll60k) and the trained k-means model to quantize the audio data. For the quantized audio, we use Conformer as the Encoder and train it in an ASR paradigm with the hybrid CTC/Attention Loss. For detailed steps, please refer to [this link](https://github.com/liu12366262626/AlignVSR/tree/master/align_vsr/Phase2_asr).
